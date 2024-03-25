@@ -17,12 +17,9 @@ app.get("/", async (req, res, next) => {
 
 A JSON API/cURLable website to get missing reciepts for a HCB organisation.
 
-Due to API limits, the limit of pages is set to ${limit}
+Due to API limits, the limit of API pages is set to ${limit}
 
-JSON API: [GET] ${req.protocol}://${req.hostname}/:id
-=> Try it out with ${req.protocol}://${req.hostname}/oblong
-
-CURL also works.
+Try it out with cURL.
 => curl ${req.protocol}://${req.hostname}/:id
 
 You can use Powershell too, if you're weird.
