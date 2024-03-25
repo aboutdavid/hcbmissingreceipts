@@ -8,7 +8,7 @@ const limit = 10;
 
 app.get("/", async (req, res, next) => {
     const ua = req.headers['user-agent']?.toLowerCase()
-    const terminal = (ua?.includes("curl") || ua?.includes("powershell"))
+    const terminal = ua?.includes("curl") || ua?.includes("powershell") || ua?.includes("wget") || req.query.color
     res.set("Content-Type", "text/plain")
     res.write(terminal ? chalk.redBright(fs.readFileSync("./logo.txt", "utf-8")) : fs.readFileSync("./logo.txt", "utf-8"))
     res.write("\n")
@@ -28,7 +28,7 @@ CURL also works.
 You can use Powershell too, if you're weird.
 => Invoke-WebRequest -Uri "${req.protocol}://${req.hostname}/:id"
 
-You can also append ?color to any repo`)
+You can also append ?color to any request and it will force ANSI colouring.`)
     res.write("\n")
 
     res.end()
